@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agence Cheikh Kecir</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo-title">
+      <img src="logo.png" alt="Logo" class="logo-header" />
+      <h1>Agence Cheikh Kecir</h1>
+    </div>
+    <nav>
+      <a href="#">Accueil</a>
+      <a href="#voyages">Nos voyages</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h2>Voyagez avec confiance</h2>
+    <p>Omra, Hajj, et destinations de rêve avec l'Agence Cheikh Kecir</p>
+  </section>
+
+  <!-- Voyages -->
+  <section id="voyages" class="voyages">
+    <div class="card">
+      <img src="umrah2.jpeg" alt="Omra Ramadan" />
+      <div class="card-content">
+        <h3>Omra 08 octobre 2025</h3>
+        <p>   La Mecque & Médine</p>
+        <p>📅 Départ : 08 octobre 2025</p>
+        <p>⏳ Durée : 15 jours</p>
+        <p>🏨 Hôtel La Mecque : Manara Al Ajyade</p>
+        <p class="prix">💰 205.000 DA (chambre 4 pers)</p>
+        <p class="prix">💰 225.000 DA (chambre 3 pers)</p>
+        <p class="prix">💰 245.000 DA (chambre 2 pers)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galerie -->
+  <section id="galerie" class="galerie">
+    <h2>Galerie des derniers voyages</h2>
+    <div class="images" id="gallery-container">
+      <!-- Images insérées en JS -->
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <h2>Contact & Réseaux sociaux</h2>
+    <p>📞 +213 793 07 06 00</p>
+    <p>📞 +213 556 12 25 70</p>
+    <p>📞 +213 658 02 64 68</p>
+
+    <div class="social-icons">
+      <a href="https://web.facebook.com/cheikh.kecir.2025" target="_blank" title="Facebook">
+        <img src="facebook.png" alt="Facebook" />
+      </a>
+      <a href="https://instagram.com" target="_blank" title="Instagram">
+        <img src="instagram.png" alt="Instagram" />
+      </a>
+      <a href="https://www.tiktok.com/@cheikh.kecir" target="_blank" title="TikTok">
+        <img src="tiktok.png" alt="TikTok" />
+      </a>
+      <a href="https://wa.me/213556122570" target="_blank" title="WhatsApp">
+        <img src="whatsApp.png" alt="WhatsApp" />
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <img src="logo.png" alt="Logo Agence Cheikh Kecir" class="logo-footer" />
+    <p>Agence Cheikh Kecir © 2025 – Tous droits réservés</p>
+    <nav>
+      <a href="#">Accueil</a>
+      <a href="#voyages">Voyages</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </footer>
+
+  <!-- Script galerie aléatoire -->
+  <script>
+    // Génère la liste des images de 1 à 39
+    const imageList = [];
+    for (let i = 1; i <= 39; i++) {
+      imageList.push(`images/${i}.jpg`);
+    }
+
+    // Mélange aléatoire
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    // Sélection de 15 images
+    const selectedImages = shuffle(imageList).slice(0, 15);
+
+    // Injection dans la galerie
+    const galleryContainer = document.getElementById("gallery-container");
+    selectedImages.forEach(img => {
+      const imageElement = document.createElement("img");
+      imageElement.src = img;
+      galleryContainer.appendChild(imageElement);
+    });
+  </script>
+</body>
+</html>
