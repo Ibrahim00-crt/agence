@@ -52,7 +52,7 @@ nav a:hover {
 }
 
 /* ---------------------- */
-/* Voyages */
+/* Voyages (3 max par ligne, centrés) */
 /* ---------------------- */
 .voyages {
   padding: 2rem;
@@ -61,14 +61,16 @@ nav a:hover {
 
 .voyages h2 {
   color: gold;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .voyages-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem; /* espace entre les cartes */
-  justify-content: center; /* centre toute la grille */
+  grid-template-columns: repeat(3, 280px); /* max 3 cartes par ligne */
+  gap: 2rem;
+  justify-content: center; /* centre les cartes même s’il y en a moins de 3 */
+  width: 100%;
+  margin: 0 auto;
 }
 
 .card {
@@ -81,13 +83,13 @@ nav a:hover {
 }
 
 .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); /* glow doré */
+  transform: scale(1.03);
+  box-shadow: 0 0 18px rgba(255, 215, 0, 0.45);
 }
 
 .card img {
   width: 100%;
-  height: 200px;
+  height: 180px;
   object-fit: cover;
 }
 
@@ -97,12 +99,13 @@ nav a:hover {
 }
 
 .card-content h3 {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
   color: gold;
 }
 
 .card-content p {
-  margin: 0.3rem 0;
+  margin: 0.2rem 0;
+  font-size: 0.95rem;
 }
 
 .prix {
@@ -146,7 +149,7 @@ nav a:hover {
 .contact {
   padding: 2rem;
   text-align: center;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .social-icons img {
@@ -177,25 +180,19 @@ nav a:hover {
 /* ---------------------- */
 /* Responsive */
 /* ---------------------- */
-@media (max-width: 1200px) {
+@media (max-width: 1000px) {
   .voyages-container {
-    grid-template-columns: repeat(3, 1fr); /* 3 cartes par ligne */
+    grid-template-columns: repeat(2, 280px); /* 2 cartes par ligne */
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 650px) {
   .voyages-container {
-    grid-template-columns: repeat(2, 1fr); /* 2 cartes par ligne */
-  }
-}
-
-@media (max-width: 600px) {
-  .voyages-container {
-    grid-template-columns: 1fr; /* 1 carte par ligne */
+    grid-template-columns: 280px; /* 1 carte par ligne */
   }
 
   .card {
-    width: 90%;
+    width: 100%;
   }
 
   nav {
